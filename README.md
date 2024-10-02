@@ -1,39 +1,39 @@
-# B题 饲料混合加工问题
+# Problem B: Feed Mixing and Processing Issue
 
-## 问题背景
-饲料加工厂需要加工一批动物能量饲料。加工过程涉及多个原料，这些原料从不同产区收购，存在效能率差异。加工任务需要将16种原料按照混合方案放入9个加工窖进行处理。加工的质量由混合后饲料的亲缘度决定，且能耗率也是重要的考虑因素。
+## Background
+The feed processing plant needs to process a batch of animal energy feed. The processing involves multiple raw materials, which are sourced from different production areas and exhibit variations in efficiency. The processing task requires mixing 16 types of raw materials and placing them into 9 processing bins for treatment. The quality of the processed feed is determined by the degree of kinship after mixing, and the energy consumption rate is also an important consideration.
 
-## 目标任务
+## Objectives
 
-1. **亲缘值统计分析**：研究16个加工原料两两之间的亲缘值，并进行统计性分析。
-2. **饲料质量最高的混合方案**：建立数学模型，求出亲缘度最高的混合方案。
-3. **能耗率超过80%的混合方案**：建立数学模型，求出平均能耗率超过80%的加工包数量最多的混合方案。
-4. **低成本加工方案**：允许部分加工窖不生产，建立模型，以尽量低的成本完成加工任务，并最大化能耗率超过80%的加工包数量。
-5. **综合优化方案**：在允许部分加工窖不生产的情况下，建立模型使得饲料质量尽量高、加工成本尽量低，且能耗率超过80%的加工包尽量多。
+1. **Kinship Value Statistical Analysis**: Study the kinship values between pairs of the 16 raw materials and perform statistical analysis.
+2. **Mixing Scheme for Highest Feed Quality**: Establish a mathematical model to determine the mixing scheme with the highest kinship degree.
+3. **Mixing Scheme with Energy Consumption Rate Over 80%**: Establish a mathematical model to find the mixing scheme that maximizes the number of processing packages with an average energy consumption rate exceeding 80%.
+4. **Low-Cost Processing Scheme**: Allow some processing bins not to produce, and establish a model to complete the processing task at the lowest possible cost while maximizing the number of processing packages with an energy consumption rate exceeding 80%.
+5. **Comprehensive Optimization Scheme**: In a scenario where some processing bins are allowed not to produce, establish a model to maximize feed quality, minimize processing costs, and maximize the number of processing packages with an energy consumption rate exceeding 80%.
 
-## 数据说明
+## Data Description
 
-### 表1：各加工原料的品种代码、总重量、效能率和基因序列标记
+### Table 1: Variety Codes, Total Weights, Efficiency Rates, and Gene Sequence Markings of Raw Materials
 
-| 品种代码 | 总重量 (千克) | 效能率 | 位点基因序列 |
-| -------- | ------------- | ------ | ------------ |
-| 1        | 300           | 0.88   | a, b, c, d, e, f, g, h, i, j |
-| 2        | 500           | 0.60   | a, b, c, d, e, o, p, k, l, m |
-| 3        | 200           | 0.93   | f, g, h, a, j, o, p, k, l, m |
-| 4        | 500           | 0.90   | f, g, h, i, j, l, p, f, o, p |
-| ...      | ...           | ...    | ... |
+| Variety Code | Total Weight (kg) | Efficiency Rate | Gene Sequence Marking |
+|--------------|--------------------|------------------|------------------------|
+| 1            | 300                | 0.88             | a, b, c, d, e, f, g, h, i, j |
+| 2            | 500                | 0.60             | a, b, c, d, e, o, p, k, l, m |
+| 3            | 200                | 0.93             | f, g, h, a, j, o, p, k, l, m |
+| 4            | 500                | 0.90             | f, g, h, i, j, l, p, f, o, p |
+| ...          | ...                | ...              | ...                    |
 
-### 表2：加工窖加工的重量范围、点火成本、加工量单位成本
+### Table 2: Weight Ranges, Ignition Costs, and Unit Processing Costs of Processing Bins
 
-| 加工窖编号 | 加工重量下限 (千克) | 加工重量上限 (千克) | 点火成本 (元) | 加工量单位成本 (元/千克) |
-| -------- | ----------------- | ----------------- | ------------ | ------------------- |
-| 1        | 300               | 600               | 400          | 2.0                 |
-| 2        | 300               | 600               | 400          | 2.0                 |
-| 3        | 300               | 600               | 400          | 2.0                 |
-| ...      | ...               | ...               | ...          | ...                 |
+| Processing Bin No. | Weight Lower Limit (kg) | Weight Upper Limit (kg) | Ignition Cost (Yuan) | Unit Processing Cost (Yuan/kg) |
+|--------------------|-------------------------|-------------------------|----------------------|---------------------------------|
+| 1                  | 300                     | 600                     | 400                  | 2.0                             |
+| 2                  | 300                     | 600                     | 400                  | 2.0                             |
+| 3                  | 300                     | 600                     | 400                  | 2.0                             |
+| ...                | ...                     | ...                     | ...                  | ...                             |
 
-### 表3：问题3结果（加工窖所含各加工原料重量及能耗率）
+### Table 3: Results of Question 3 (Weights of Each Raw Material in Processing Bins and Energy Consumption Rate)
 
-| 加工窖 | 加工原料1 | 加工原料2 | 加工原料3 | 加工原料4 | 加工原料5 | ... | 能耗率 |
-| ----- | --------- | --------- | --------- | --------- | --------- | --- | ------ |
-| 1     | ...       | ...       | ...       | ...       | ...       | ... | ...    |
+| Processing Bin | Raw Material 1 | Raw Material 2 | Raw Material 3 | Raw Material 4 | Raw Material 5 | ... | Energy Consumption Rate |
+|----------------|----------------|----------------|----------------|----------------|----------------|-----|-------------------------|
+| 1              | ...            | ...            | ...            | ...            | ...            | ... | ...                     |
